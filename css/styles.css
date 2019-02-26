@@ -202,3 +202,11 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+/* from course Callback Functions in JS video 2 highlight class
+.highlight {
+    box-shadow: 0px 0px 10px #755d00;
+}
+
+*/
+
