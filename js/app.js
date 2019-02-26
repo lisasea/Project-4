@@ -36,11 +36,15 @@ logPhrase(game.getRandomPhrase()); //temp code Step 5
 //game.getRandomPhrase().addPhraseToDisplay(); // temp code Step 6
 
 /*
-const game = new Game(); // temp Step 6 doesn't work
+const game = new Game(); // temp Step 6 
 const randomPhrase = game.getRandomPhrase();
 const phrase = new Phrase(randomPhrase.phrase);
 phrase.addPhraseToDisplay();
+*/
 
+const game = new Game();
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
 /* I think you just need to create the resetDisplay() function and  markButton() function in app.js. You can also disable highlighting the letters on the board with
 ```#phrase ul li {user-select: none;}```

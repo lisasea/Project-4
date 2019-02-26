@@ -25,6 +25,14 @@
          let randPhrase = this.phrases[random];
          return randPhrase;
      }
+
+    startGame() { //begins game, selects random phrase, hides start screen overlay 
+        document.querySelector('#overlay').style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+    }
+
+
  }
 
 /*
