@@ -5,7 +5,7 @@
 //Step 1 instructions create new instance of the 'Game' class
 //Step 1 " "   add event listeners for start button
 //Step 1 " "   add event listeners for onscreen keyboard buttons
-
+/*
 const phrase = new Phrase('Life is like a box of chocolates'); // temporary code Step 3 to make sure you can create instancres of each class
 const game = new Game(); // temporary code Step 3 "   "
 
@@ -15,17 +15,32 @@ game.phrases.forEach((phrase, index) => {
     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`); // temporary code Step 4
 })
 
+
+
 const logPhrase = (phrase) => { //temp code Step 5
     console.log(`Phrase - phrase: `, phrase.phrase);
 };
 
-const game = new Game(); //temp code Step 5
+
+const game = new Game(); //temp code Step 5 works
 
 logPhrase(game.getRandomPhrase()); //temp code Step 5
 logPhrase(game.getRandomPhrase()); //temp code Step 5
 logPhrase(game.getRandomPhrase()); //temp code Step 5
 logPhrase(game.getRandomPhrase()); //temp code Step 5
 logPhrase(game.getRandomPhrase()); //temp code Step 5
+
+*/
+
+//const game = new Game(); // temp code Step 6 works
+//game.getRandomPhrase().addPhraseToDisplay(); // temp code Step 6
+
+/*
+const game = new Game(); // temp Step 6 doesn't work
+const randomPhrase = game.getRandomPhrase();
+const phrase = new Phrase(randomPhrase.phrase);
+phrase.addPhraseToDisplay();
+
 
 /* I think you just need to create the resetDisplay() function and  markButton() function in app.js. You can also disable highlighting the letters on the board with
 ```#phrase ul li {user-select: none;}```

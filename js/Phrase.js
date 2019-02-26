@@ -8,9 +8,22 @@
         this.phrase = phrase.toLowerCase(); 
     }
 
-    addPhraseToDisplay() {
-        
+    addPhraseToDisplay() { // loop thru characters of phrase, create list item for each and append
+        const phraseCharacters = document.querySelector('#phrase ul');
+        for(let i=0; i<this.phrase.length; i++) {
+            let phraseLi = document.createElement('li');
+            phraseLi.textContent = this.phrase[i];
+            if (phraseLi.textContent == ' ') {
+                phraseLi.className = 'space';
+            } else {
+                phraseLi.className = 'letter';
+        }
+        phraseCharacters.appendChild(phraseLi);
+            } 
     }
+
+
+
 }
 
 

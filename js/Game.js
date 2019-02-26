@@ -10,13 +10,14 @@
      }
 
      createPhrases() { //quotes made famous by Shakespeare
-        return phrases = [ 
-            new phrase('Green eyed monster'),
-            new phrase('Wild goose chase'),
-            new phrase('Love is blind'),
-            new phrase('Dead as a doornail'),
-            new phrase('Forever and a day'),
-        ]
+        const phrases = [ 
+            new Phrase('Green eyed monster'),
+            new Phrase('Wild goose chase'),
+            new Phrase('Love is blind'),
+            new Phrase('Dead as a doornail'),
+            new Phrase('Forever and a day'),
+        ];
+        return phrases
      }
 
      getRandomPhrase() {
