@@ -9,17 +9,38 @@
     }
 
     addPhraseToDisplay() { // loop thru characters of phrase, create list item for each and append
-        const phraseCharacters = document.querySelector('#phrase ul');
+        const phraseCharacters = document.querySelector('#phrase ul'); //should this be '#phrase ul'?
         for(let i=0; i<this.phrase.length; i++) {
             let phraseLi = document.createElement('li');
             phraseLi.textContent = this.phrase[i];
             if (phraseLi.textContent == ' ') {
                 phraseLi.className = 'space';
             } else {
-                phraseLi.className = 'letter';
+                phraseLi.className = 'hide letter ${this.phrase[i]}'; // or just ? 'hide '; ?
         }
         phraseCharacters.appendChild(phraseLi);
             } 
+    }
+
+    checkLetter(letter) {
+        if (this.phrase.includes(letter)) {
+            return true;
+        } else {
+            return false; 
+        }
+    }
+
+    showMatchedLetter(letter) { //Jennifer HELP!!! I don't understand this code?
+        if (this.checkLetter(letter)) {
+            const matchLetter = document.querySelectorAll('#phrase .' + letter);//'#phrase' enough?
+            for (let i = 0; i < matchLetter.length; i++) {
+                matchLetter[i].classList.remove('hide'); //remove class 'hide letter'? (phrase.js line 19)
+                matchLetter[i].classList.add('show'); // show letter
+            }
+        } 
+    //to test code above enter in console  game.activePhrase.showMatchedLetter9'a')
+
+
     }
 
 

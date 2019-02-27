@@ -2,6 +2,17 @@
  * Project 4 - OOP Game App
  * app.js */
  
+
+let game;
+
+document.getElementById('btn__reset').addEventListener('click', function(){
+    game = new Game();
+    game.startGame();
+});
+
+
+
+
 //Step 1 instructions create new instance of the 'Game' class
 //Step 1 " "   add event listeners for start button
 //Step 1 " "   add event listeners for onscreen keyboard buttons
@@ -40,7 +51,7 @@ const game = new Game(); // temp Step 6
 const randomPhrase = game.getRandomPhrase();
 const phrase = new Phrase(randomPhrase.phrase);
 phrase.addPhraseToDisplay();
-*/
+
 
 const game = new Game();
 game.startGame();
