@@ -34,7 +34,7 @@
         if (this.checkLetter(letter)) {
             const matchLetter = document.querySelectorAll('#phrase .' + letter);//'#phrase' enough?
             for (let i = 0; i < matchLetter.length; i++) {
-                matchLetter[i].classList.remove('hide'); //remove class 'hide letter'? (phrase.js line 19)
+                matchLetter[i].classList.remove('hide letter'); //remove class 'hide'? (phrase.js line 19)
                 matchLetter[i].classList.add('show'); // show letter
             }
         } 

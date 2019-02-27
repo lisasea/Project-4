@@ -35,13 +35,15 @@
     handleInteraction(button) { //letter selected by player 
         button.disabled = true;
         const letter = button.textContent;
-        if(!this.activePhrase.checkLetter(letter)) { //is not in active phrase remove "heart/life"
+        if(!this.activePhrase.checkLetter(letter)) { //is not a letter in active phrase remove "heart/life"
             button.classList.add('wrong');
             this.removeLife();
         } else {
-            button.classList.add('chosen'); // is in active phrase - check to see if game is won
-            if(this.checkForWin() === true)
-                this.gameOver(true);
+            button.classList.add('chosen'); // is a letter in active phrase - check to see if game is won
+            if(this.checkForWin() === true) {
+                this.gameOver(true); // or just this.gameOver();
+                //how/where do I reset disabled buttons at end of game?
+            }
         }
     }
    
@@ -55,24 +57,41 @@
         }
     }
 
-    removeLife() {
-
-
+    
+    removeLife() { //when miss letter remove a life / heart from scoreboard. 5 total.
+        this.missed++;
+        if (this.missed < 5) {  
+            const hearts = document.querySelectorAll('#scoreboard .tries');
+            const img = hearts[hearts.length - this.missed].children[0];
+            img.src = 'images/lostHeart.png';
+        } else {
+            this.gaveOver(); //should this be (true) (false)?
+        }
     }
 
     gameOver() {
+        const 
+        const winLoseMsg = document.querySelector('game-over-message');
+        const restoreOverlay = document.querySelector('#overlay');
+        restoreOverlay.style.display = 'block';
+        restoreOverlay.classList = '';
+       // if checkForWin = = 'true' {   //I know checkForWin above does not have global scope
+        if 
+       
 
     }
+
+    //after game is over how do I remove disabled class before next game begins?
 
 
  }
 
 /*
-startGame
+XX startGame
 endGame
-handleInteraction
-checkForWin
-removeLife
+XX handleInteraction
+XX checkForWin
+XX removeLife
 XX getRandomPhrase
 
 
