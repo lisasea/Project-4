@@ -10,6 +10,13 @@ document.getElementById('btn__reset').addEventListener('click', function() {
     game.startGame();
 });
 
+let keys = document.getElementsByClassName('key');
+for(let key of keys) { //key arbitrary. just a way to loop thru array of keys
+    key.addEventListener('click', function(event) {
+        game.handleInteraction(event.target); // button is the event target where click happened
+    });
+}
+
 
 
 

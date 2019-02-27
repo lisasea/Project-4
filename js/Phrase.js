@@ -16,7 +16,7 @@
             if (phraseLi.textContent == ' ') {
                 phraseLi.className = 'space';
             } else {
-                phraseLi.className = 'hide letter ${this.phrase[i]}'; // or just ? 'hide '; ?
+                phraseLi.className = `hide letter ${this.phrase[i]}`; // or just ? 'hide '; ?
         }
         phraseCharacters.appendChild(phraseLi);
             } 
@@ -32,9 +32,10 @@
 
     showMatchedLetter(letter) { //Jennifer HELP!!! I don't understand this code?
         if (this.checkLetter(letter)) {
-            const matchLetter = document.querySelectorAll('#phrase .' + letter);//'#phrase' enough?
+            const matchLetter = document.querySelectorAll('.letter');
             for (let i = 0; i < matchLetter.length; i++) {
-                matchLetter[i].classList.remove('hide letter'); //remove class 'hide'? (phrase.js line 19)
+                if(matchLetter[i].textContent == letter) {
+                matchLetter[i].classList.remove('hide'); //remove class 'hide'? (phrase.js line 19)
                 matchLetter[i].classList.add('show'); // show letter
             }
         } 

@@ -40,6 +40,7 @@
             this.removeLife();
         } else {
             button.classList.add('chosen'); // is a letter in active phrase - check to see if game is won
+            this.activePhrase.showMatchedLetter(letter);
             if(this.checkForWin() === true) {
                 this.gameOver(true); // or just this.gameOver();
                 //how/where do I reset disabled buttons at end of game?
@@ -47,36 +48,40 @@
         }
     }
    
-    //does this need to be above handleInteraction?
     checkForWin() { //are all letters revealed? game has been won
         const hidden = document.getElementsByClassName('hide letter'); //? 'hide' enough? should this be 'hide letter' (phrase.js line 19?)
-        if(!hidden) { //if no letters remain hidden game has been won
-            return true;
-        } else { //Jennifer is this else statement redundant? can it be deleted?
-            return false;
+        return !hidden;
         }
     }
 
     
     removeLife() { //when miss letter remove a life / heart from scoreboard. 5 total.
         this.missed++;
-        if (this.missed < 5) {  
-            const hearts = document.querySelectorAll('#scoreboard .tries');
-            const img = hearts[hearts.length - this.missed].children[0];
-            img.src = 'images/lostHeart.png';
-        } else {
-            this.gaveOver(); //should this be (true) (false)?
+        const hearts = document.querySelectorAll('#scoreboard .tries');
+        const img = hearts[hearts.length - this.missed].children[0];
+        img.src = 'images/lostHeart.png';
+        if (this.missed == 5){
+            this.gameOver(false); //should this be (true) (false)?
         }
     }
 
-    gameOver() {
-        const 
+
+    gameOver(gameWon) 
         const winLoseMsg = document.querySelector('game-over-message');
         const restoreOverlay = document.querySelector('#overlay');
         restoreOverlay.style.display = 'block';
-        restoreOverlay.classList = '';
+        if(gameWon) {
+            winLoseMsg.innerText = 'Congratulations! You Won!!!';
+            restoreOverlay.classList.add('win');
+        } else {
+            winLoseMsg.innerText = 'Bummer.  Want to try again?';
+            restoreOverlay.classList.add('lose');
+        }
+
+        // reset everything to empty strings and start over again....
+    
        // if checkForWin = = 'true' {   //I know checkForWin above does not have global scope
-        if 
+         
        
 
     }
