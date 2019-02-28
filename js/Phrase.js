@@ -17,9 +17,9 @@
                 phraseLi.className = 'space';
             } else {
                 phraseLi.className = `hide letter ${this.phrase[i]}`; // or just ? 'hide '; ?
-        }
+            }
         phraseCharacters.appendChild(phraseLi);
-            } 
+        } 
     }
 
     checkLetter(letter) {
@@ -37,15 +37,12 @@
                 if(matchLetter[i].textContent == letter) {
                 matchLetter[i].classList.remove('hide'); //remove class 'hide'? (phrase.js line 19)
                 matchLetter[i].classList.add('show'); // show letter
-            }
-        } 
-    //to test code above enter in console  game.activePhrase.showMatchedLetter9'a')
-
-
-    }
-
-
-
+                }
+            } 
+    //to test code above enter in console  game.activePhrase.showMatchedLetter9'a'
+        }
+    }   
+    
 }
 
 

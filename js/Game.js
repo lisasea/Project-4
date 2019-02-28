@@ -27,6 +27,7 @@
      }
 
     startGame() { //begins game, selects random phrase, hides start screen overlay 
+        this.resetGame();
         document.querySelector('#overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
@@ -50,45 +51,57 @@
    
     checkForWin() { //are all letters revealed? game has been won
         const hidden = document.getElementsByClassName('hide letter'); //? 'hide' enough? should this be 'hide letter' (phrase.js line 19?)
-        return !hidden;
+        return hidden.length == 0;
         }
-    }
 
-    
     removeLife() { //when miss letter remove a life / heart from scoreboard. 5 total.
         this.missed++;
         const hearts = document.querySelectorAll('#scoreboard .tries');
         const img = hearts[hearts.length - this.missed].children[0];
         img.src = 'images/lostHeart.png';
-        if (this.missed == 5){
-            this.gameOver(false); //should this be (true) (false)?
+        if(this.missed == 5) {
+            this.gameOver(false);
         }
     }
 
 
-    gameOver(gameWon) 
-        const winLoseMsg = document.querySelector('game-over-message');
+    gameOver(gameWon) {
+        const winLoseMsg = document.getElementById('game-over-message'); // same result as querySelector but not as quick as getElemenbtbyId super fast!
+
         const restoreOverlay = document.querySelector('#overlay');
-        restoreOverlay.style.display = 'block';
+        restoreOverlay.style.display = 'flex';
+        restoreOverlay.classList.remove('win', 'lose');
         if(gameWon) {
-            winLoseMsg.innerText = 'Congratulations! You Won!!!';
+            winLoseMsg.innerText = 'Congratulations! You Won!!!'
             restoreOverlay.classList.add('win');
         } else {
             winLoseMsg.innerText = 'Bummer.  Want to try again?';
             restoreOverlay.classList.add('lose');
         }
+    }
+ 
 
-        // reset everything to empty strings and start over again....
-    
-       // if checkForWin = = 'true' {   //I know checkForWin above does not have global scope
-         
-       
 
+    resetGame() {
+        const ul = document.querySelector('#phrase ul');
+        ul.innerHTML = '';
+        this.missed = 0;
+        
+        let keys = document.getElementsByClassName('key');
+        for(let key of keys) { //key arbitrary. just a way to loop thru array of keys
+        key.disabled = false;
+        key.classList.remove('wrong', 'chosen'); 
+        }
+        const hearts = document.querySelectorAll('#scoreboard .tries');
+        console.log(hearts);
+        for(let heart of hearts) {
+            heart.children[0].src = "images/liveHeart.png";
+        }
     }
 
+            // reset everything to empty strings and start over again....
+
     //after game is over how do I remove disabled class before next game begins?
-
-
  }
 
 /*
