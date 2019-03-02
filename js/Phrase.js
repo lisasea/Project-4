@@ -8,7 +8,7 @@
         this.phrase = phrase.toLowerCase(); 
     }
 
-    addPhraseToDisplay() { // loop thru characters of phrase, create list item for each and append
+    addPhraseToDisplay() { // display phrase on gameboard - loop thru characters of phrase, create list item for each and append
         const phraseCharacters = document.querySelector('#phrase ul'); //should this be '#phrase ul'?
         for(let i=0; i<this.phrase.length; i++) {
             let phraseLi = document.createElement('li');
@@ -22,7 +22,7 @@
         } 
     }
 
-    checkLetter(letter) {
+    checkLetter(letter) { // checks to see if letter player has chosen is in current phrase
         if (this.phrase.includes(letter)) {
             return true;
         } else {
@@ -30,16 +30,15 @@
         }
     }
 
-    showMatchedLetter(letter) { //Jennifer HELP!!! I don't understand this code?
+    showMatchedLetter(letter) { // reveals the letter(s) on the board that matches the player's selection.  
         if (this.checkLetter(letter)) {
             const matchLetter = document.querySelectorAll('.letter');
             for (let i = 0; i < matchLetter.length; i++) {
                 if(matchLetter[i].textContent == letter) {
-                matchLetter[i].classList.remove('hide'); //remove class 'hide'? (phrase.js line 19)
-                matchLetter[i].classList.add('show'); // show letter
+                matchLetter[i].classList.remove('hide'); 
+                matchLetter[i].classList.add('show'); 
                 }
             } 
-    //to test code above enter in console  game.activePhrase.showMatchedLetter9'a'
         }
     }   
     
